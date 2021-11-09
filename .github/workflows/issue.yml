@@ -1,6 +1,6 @@
 on:
   issues:
-    types: [ created, opened] # , assigned, unassigned, labeled, unlabeled, opened, edited, milestoned, demilestoned, closed, reopened
+    types: [ opened ] # created, assigned, unassigned, labeled, unlabeled, opened, edited, milestoned, demilestoned, closed, reopened
 
 jobs:
   issue_job:
