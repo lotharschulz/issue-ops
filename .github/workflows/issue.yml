@@ -7,7 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Issue Job
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "hello"
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const {owner, repo} = context.issue
+            github.reactions.createForIssueComment({
+              owner,
+              repo,
+              content: "+1",
+            });
