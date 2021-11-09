@@ -1,0 +1,13 @@
+on:
+  issues:
+    types: [ created] # , assigned, unassigned, labeled, unlabeled, opened, edited, milestoned, demilestoned, closed, reopened
+
+jobs:
+  issue_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Issue Job
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "hello"
