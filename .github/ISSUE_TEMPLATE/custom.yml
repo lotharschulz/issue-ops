@@ -8,4 +8,13 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this request!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What would you like to experience?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you want to see!
+      value: I would like to ....
+    validations:
+      required: true
 
