@@ -12,8 +12,8 @@ jobs:
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           # https://github.community/t/get-contents-body-of-issue-in-action/136057/2
-          echo "Issue title: ISSUE_TITLE"
-          echo "Issue body: ISSUE_BODY"
+          echo "Issue title: $ISSUE_TITLE"
+          echo "Issue body: $ISSUE_BODY"
       - name: View the github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
