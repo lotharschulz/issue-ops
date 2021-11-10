@@ -8,8 +8,6 @@ jobs:
     steps:
       - name: Issue Job
         uses: actions/github-script@v5
-        env:
-          ISSUE_BODY: '${{ github.event.issue.body }}'
         with:
           script: |
             # https://github.com/actions/github-script#comment-on-an-issue
@@ -17,7 +15,14 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 Thanks for your issue!'
+              body: 'Thanks for your contribution! 👋'
             })
-            const issueBody = `${ISSUE_BODY}`
-            console.log(issueBody)
+      - name: View issue information
+        run: |
+          # https://github.community/t/get-contents-body-of-issue-in-action/136057/2
+          echo "Issue title: ${{ github.event.issue.title }}"
+          echo "Issue body: ${{ github.event.issue.body }}"
+      - name: View the github context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
