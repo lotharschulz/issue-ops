@@ -30,6 +30,8 @@ jobs:
           ISSUE_BODY: ${{ github.event.issue.body }}
         with:
           script: |
+            echo "Issue title: $ISSUE_TITLE"
+            echo "Issue body: $ISSUE_BODY"
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
