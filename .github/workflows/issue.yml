@@ -21,7 +21,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `Just to confirm, we are on it.\n---------\ntitle:\n**${ISSUE_TITLE}**\n\nrequest:\n${ISSUE_BODY}`
+              body: `Just to confirm, we are on it.\n\n---------\nyour issue title:\n**${ISSUE_TITLE}**\n\nyour issue request:\n${ISSUE_BODY}`
             })
 
       - name: Github Context View
