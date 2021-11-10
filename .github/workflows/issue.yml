@@ -16,7 +16,11 @@ jobs:
           echo "Issue body: $ISSUE_BODY"
           while read line; 
           do 
-            echo "LINE: '${line}'"; 
+            #echo "line: '${line}'"; 
+            if [[ $a == "- " ]];
+            then
+              echo '${line}'
+            fi
           done < <(echo "$ISSUE_BODY")
       - name: View the github context
         env:
