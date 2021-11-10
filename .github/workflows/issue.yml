@@ -17,7 +17,7 @@ jobs:
           while read line; 
           do 
             #echo "line: '${line}'"; 
-            if [[ $a == "- " ]];
+            if [[ $a == -* ]];
             then
               echo 'line: ${line}'
               size=${#line}
