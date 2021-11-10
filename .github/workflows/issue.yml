@@ -14,6 +14,10 @@ jobs:
           # https://github.community/t/get-contents-body-of-issue-in-action/136057/2
           echo "Issue title: $ISSUE_TITLE"
           echo "Issue body: $ISSUE_BODY"
+          while read line; 
+          do 
+            echo "LINE: '${line}'"; 
+          done < <(echo "$ISSUE_BODY")
       - name: View the github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
