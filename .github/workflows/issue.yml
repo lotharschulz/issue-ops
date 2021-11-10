@@ -19,5 +19,5 @@ jobs:
               repo: context.repo.repo,
               body: '👋 Thanks for your issue!'
             })
-            const issueBody = `${SHA}`
+            const issueBody = `${ISSUE_BODY}`
             console.log(issueBody)
