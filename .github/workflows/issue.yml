@@ -14,9 +14,10 @@ jobs:
           # https://github.community/t/get-contents-body-of-issue-in-action/136057/2
           echo "Issue title: $ISSUE_TITLE"
           echo "Issue body: $ISSUE_BODY"
+          
           while read line; 
           do 
-            #echo "line: '${line}'"; 
+            echo "line: '${line}'"; 
             if [[ ${line} =~ "^-\s*$" ]];
             then
               echo 'line: ${line}'
