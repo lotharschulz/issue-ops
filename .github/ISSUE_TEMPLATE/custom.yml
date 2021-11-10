@@ -43,5 +43,3 @@ body:
       label: technical notes
       description: Please share technical notes. This will be automatically formatted into code, so no need for backticks.
       render: shell
-
----
