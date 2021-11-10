@@ -36,4 +36,3 @@ jobs:
               repo: context.repo.repo,
               body: 'Thanks!'
             })
-            #               body: 'repeat: `${ISSUE_BODY}`'
