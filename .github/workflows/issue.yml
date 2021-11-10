@@ -15,19 +15,6 @@ jobs:
           echo "Issue title: $ISSUE_TITLE"
           echo "Issue body: $ISSUE_BODY"
 
-          while read line; 
-          cntr=0;
-          do 
-            cntr=$((cntr+1));
-            echo "line: '${line}'"; 
-            if [[ cntr > 2 ]];
-            then
-              echo '-line: ${line}'
-              #size=${#line}
-              #kv = ${line:2:$size}
-              #echo '-kv: ${kv}'
-            fi
-          done < <(echo "$ISSUE_BODY")
       - name: View the github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -35,3 +22,17 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
           echo "$GITHUB_EVENT"
+
+      - name: Issue Job
+        uses: actions/github-script@v5
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        with:
+          script: |
+            # https://github.com/actions/github-script#comment-on-an-issue
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'repeat: $ISSUE_BODY'
+            })
