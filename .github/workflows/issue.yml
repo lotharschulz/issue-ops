@@ -14,16 +14,18 @@ jobs:
           # https://github.community/t/get-contents-body-of-issue-in-action/136057/2
           echo "Issue title: $ISSUE_TITLE"
           echo "Issue body: $ISSUE_BODY"
-          
+
           while read line; 
+          cntr=0;
           do 
+            cntr=$((cntr+1));
             echo "line: '${line}'"; 
-            if [[ ${line} =~ "^-\s*$" ]];
+            if [[ cntr > 2 ]];
             then
-              echo 'line: ${line}'
+              echo '-line: ${line}'
               size=${#line}
               kv = ${line:2:$size}
-              echo 'kv: ${kv}'
+              echo '-kv: ${kv}'
             fi
           done < <(echo "$ISSUE_BODY")
       - name: View the github context
