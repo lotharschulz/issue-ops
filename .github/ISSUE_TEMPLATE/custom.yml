@@ -1,6 +1,6 @@
 ---
 name: Custom Issue
-about: Custom Issue
+description: File a custom issue
 title: "[Request]: "
 labels: ["feature", "request"]
 
