@@ -30,11 +30,11 @@ jobs:
           ISSUE_BODY: ${{ github.event.issue.body }}
         with:
           script: |
-            echo "Issue title: $ISSUE_TITLE"
-            echo "Issue body: $ISSUE_BODY"
+            const { ISSUE_TITLE, ISSUE_BODY } = process.env
+            console.log(`title: ${ISSUE_TITLE} - body ${ISSUE_BODY}`)
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "Just to confirm, we are on it\ntitle:\n$ISSUE_TITLE\n\nrequest:\n$ISSUE_BODY"
+              body: `Just to confirm, we are on it\ntitle:\n${ISSUE_TITLE}\n\nrequest:\n${ISSUE_BODY}`
             })
