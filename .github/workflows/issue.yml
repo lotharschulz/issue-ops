@@ -7,10 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: View issue information
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           # https://github.community/t/get-contents-body-of-issue-in-action/136057/2
-          echo "Issue title: ${{ github.event.issue.title }}"
-          echo "Issue body: ${{ github.event.issue.body }}"
+          echo "Issue title: ISSUE_TITLE"
+          echo "Issue body: ISSUE_BODY"
       - name: View the github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -18,5 +21,3 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
           echo "$GITHUB_EVENT"
-          # body="$(jq '.event.issue.body' ${{ toJson(github) }})"
-          # echo "$body"
