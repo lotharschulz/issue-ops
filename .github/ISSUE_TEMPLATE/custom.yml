@@ -1,11 +1,8 @@
 ---
 name: Custom Issue
-about: File an Issue.
 title: "[Request]: "
 labels: ["feature", "request"]
-assignees: ''
-
----
+assignees: ""
 
 body:
   - type: markdown
@@ -47,3 +44,5 @@ body:
       label: technical notes
       description: Please share technical notes. This will be automatically formatted into code, so no need for backticks.
       render: shell
+
+---
