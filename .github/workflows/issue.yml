@@ -19,10 +19,10 @@ jobs:
             #echo "line: '${line}'"; 
             if [[ $a == "- " ]];
             then
-              echo '${line}'
+              echo 'line: ${line}'
               size=${#line}
               kv = ${line:2:$size}
-              echo '${kv}'
+              echo 'kv: ${kv}'
             fi
           done < <(echo "$ISSUE_BODY")
       - name: View the github context
