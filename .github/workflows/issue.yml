@@ -20,6 +20,9 @@ jobs:
             if [[ $a == "- " ]];
             then
               echo '${line}'
+              size=${#line}
+              kv = ${line:2:$size}
+              echo '${kv}'
             fi
           done < <(echo "$ISSUE_BODY")
       - name: View the github context
