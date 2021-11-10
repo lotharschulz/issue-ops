@@ -14,7 +14,9 @@ jobs:
       - name: View the github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_EVENT: ${{ github.event_path }}
         run: |
           echo "$GITHUB_CONTEXT"
-          body="$(jq '.event.issue.body' $GITHUB_CONTEXT)"
-          echo "$body"
+          echo "$GITHUB_EVENT"
+          # body="$(jq '.event.issue.body' ${{ toJson(github) }})"
+          # echo "$body"
