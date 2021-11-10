@@ -18,4 +18,29 @@ body:
       value: I would like to ....
     validations:
       required: true
-
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.1.2 (PRODUCTION)
+        - 1.1.3 (APLHA)
+    validations:
+      required: true
+  - type: dropdown
+    id: platforms
+    attributes:
+      label: What platform are you using?
+      multiple: true
+      options:
+        - iOS
+        - Android
+        - Windows
+        - else
+  - type: textarea
+    id: tech notes
+    attributes:
+      label: technical notes
+      description: Please share technical notes. This will be automatically formatted into code, so no need for backticks.
+      render: shell
