@@ -1,5 +1,6 @@
 ---
 name: Custom Issue
+about: Custom Issue
 title: "[Request]: "
 labels: ["feature", "request"]
 
