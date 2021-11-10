@@ -34,5 +34,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Just to confirm, we are on it\ntitle:\n${ISSUE_TITLE}\n\nrequest:\n${ISSUE_BODY}'
+              body: "Just to confirm, we are on it\ntitle:\n${ISSUE_TITLE}\n\nrequest:\n${ISSUE_BODY}"
             })
