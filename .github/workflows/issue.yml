@@ -6,24 +6,9 @@ jobs:
   issue_job:
     runs-on: ubuntu-latest
     steps:
-      - name: View issue information
-        env:
-          ISSUE_TITLE: ${{ github.event.issue.title }}
-          ISSUE_BODY: ${{ github.event.issue.body }}
-        run: |
-          # https://github.community/t/get-contents-body-of-issue-in-action/136057/2
-          echo "Issue title: $ISSUE_TITLE"
-          echo "Issue body: $ISSUE_BODY"
-
-      - name: View the github context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-          GITHUB_EVENT: ${{ github.event_path }}
-        run: |
-          echo "$GITHUB_CONTEXT"
-          echo "$GITHUB_EVENT"
-
-      - name: Issue Job
+      # https://github.community/t/get-contents-body-of-issue-in-action/136057/2
+      # https://github.com/actions/github-script#comment-on-an-issue
+      - name: Create Issue Comment
         uses: actions/github-script@v5
         env:
           ISSUE_TITLE: ${{ github.event.issue.title }}
@@ -36,5 +21,13 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `Just to confirm, we are on it\ntitle:\n${ISSUE_TITLE}\n\nrequest:\n${ISSUE_BODY}`
+              body: `Just to confirm, we are on it.\n---------\ntitle:\n**${ISSUE_TITLE}**\n\nrequest:\n${ISSUE_BODY}`
             })
+
+      - name: Github Context View
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_EVENT: ${{ github.event_path }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+          echo "$GITHUB_EVENT"
