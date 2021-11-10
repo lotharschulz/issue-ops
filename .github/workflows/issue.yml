@@ -23,9 +23,9 @@ jobs:
             if [[ cntr > 2 ]];
             then
               echo '-line: ${line}'
-              size=${#line}
-              kv = ${line:2:$size}
-              echo '-kv: ${kv}'
+              #size=${#line}
+              #kv = ${line:2:$size}
+              #echo '-kv: ${kv}'
             fi
           done < <(echo "$ISSUE_BODY")
       - name: View the github context
